@@ -25,17 +25,16 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
     && sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/' /etc/ssh/sshd_config \
     && echo "UseDNS no" >> /etc/ssh/sshd_config
 
-# 设置 root 密码（生产环境请改掉！）
+# 设置 root 密码（生产环境请务必修改）
 RUN echo 'root:root123' | chpasswd
 
-# 可选：创建一个普通用户
+# 创建一个普通用户
 RUN useradd -m -s /bin/bash -G sudo ubuntu \
     && echo 'ubuntu:ubuntu123' | chpasswd
 
-# 生成 SSH host key（否则 sshd 启动会失败）
+# 生成 SSH host key
 RUN ssh-keygen -A
 
 EXPOSE 22
 
-# 前台运行 sshd
 CMD ["/usr/sbin/sshd", "-D"]
