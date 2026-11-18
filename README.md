@@ -21,9 +21,6 @@ docker run -d -p 2222:22 --name ubuntu-ssh ghcr.io/nongbin1998/ghcr-actions:late
 ssh root@localhost -p 2222
 # 密码：root123
 
-
-1
-
 # ubuntu 用户
 ssh ubuntu@localhost -p 2222
 # 密码：ubuntu123
