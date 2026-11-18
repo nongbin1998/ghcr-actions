@@ -26,3 +26,4 @@ ssh ubuntu@localhost -p 2222
 # 密码：ubuntu123
 ```
 
+项目仅供测试使用，不建议在生产环境中使用。  
