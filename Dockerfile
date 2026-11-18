@@ -28,9 +28,9 @@ RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/
 # 设置 root 密码（生产环境请务必修改）
 RUN echo 'root:root123' | chpasswd
 
-# 创建一个普通用户
-RUN useradd -m -s /bin/bash -G sudo ubuntu \
-    && echo 'ubuntu:ubuntu123' | chpasswd
+# 给已存在的 ubuntu 用户设置密码，并确保有 sudo 权限
+RUN echo 'ubuntu:ubuntu123' | chpasswd \
+    && usermod -aG sudo ubuntu
 
 # 生成 SSH host key
 RUN ssh-keygen -A
