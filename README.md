@@ -8,21 +8,21 @@
 docker pull ghcr.io/nongbin1998/ghcr-actions:latest
 ```
 
-## 启动容器（后台运行，映射 2222 端口）
+## 启动容器（后台运行，映射 12222 端口）
 
 ```bash
-docker run -d -p 2222:22 --name ubuntu-ssh ghcr.io/nongbin1998/ghcr-actions:latest
+docker run -d -p 12222:22 --name ubuntu-ssh ghcr.io/nongbin1998/ghcr-actions:latest
 ```
 
 ## SSH 登录
 
 ```bash
 # root 用户
-ssh root@localhost -p 2222
+ssh root@localhost -p 12222
 # 密码：root123
 
 # ubuntu 用户
-ssh ubuntu@localhost -p 2222
+ssh ubuntu@localhost -p 12222
 # 密码：ubuntu123
 ```
 

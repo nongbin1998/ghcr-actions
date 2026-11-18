@@ -1,4 +1,4 @@
-name: Build and Publish Docker Image to GHCR
+name: Build and Publish Docker Image to GHCR (v1.2.4)
 
 on:
   push:
